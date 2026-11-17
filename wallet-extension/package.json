@@ -1,8 +1,8 @@
 {
   "name": "solana-wallet-extension",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "Dompet Solana non-custodial berbentuk ekstensi browser (mirip Phantom), untuk belajar.",
+  "description": "Dompet Solana non-custodial berbentuk ekstensi browser (mirip Phantom): token, NFT, swap, staking, koneksi dApp.",
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
@@ -10,6 +10,7 @@
     "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
+    "@noble/curves": "1.9.7",
     "@noble/hashes": "1.8.0",
     "@scure/bip39": "1.6.0",
     "@solana/web3.js": "1.98.4",
@@ -17,6 +18,7 @@
     "qrcode": "1.5.4"
   },
   "devDependencies": {
+    "@solana/spl-token": "0.4.14",
     "esbuild": "0.25.10"
   }
 }

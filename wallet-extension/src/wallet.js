@@ -5,6 +5,7 @@ import { generateMnemonic, mnemonicToSeedSync, validateMnemonic } from '@scure/b
 import { wordlist } from '@scure/bip39/wordlists/english';
 import { hmac } from '@noble/hashes/hmac';
 import { sha512 } from '@noble/hashes/sha512';
+import { ed25519 } from '@noble/curves/ed25519';
 import { Keypair } from '@solana/web3.js';
 import bs58 from 'bs58';
 
@@ -144,4 +145,36 @@ export async function decryptVault(vault, password) {
 export function keypairForAccount(secret, accountIndex) {
   if (secret.type === 'mnemonic') return keypairFromMnemonic(secret.mnemonic, accountIndex);
   return keypairFromPrivateKey(secret.secretKey);
+}
+
+// ---------- Tanda tangan pesan (signMessage / Sign In With Solana) ----------
+
+export function signMessage(keypair, message) {
+  return ed25519.sign(message, keypair.secretKey.slice(0, 32));
+}
+
+export function verifyMessage(publicKeyBytes, message, signature) {
+  return ed25519.verify(signature, message, publicKeyBytes);
+}
+
+/** Format pesan Sign In With Solana (sama dengan @solana/wallet-standard-util). */
+export function createSignInMessageText(input) {
+  let message = `${input.domain} wants you to sign in with your Solana account:\n`;
+  message += `${input.address}`;
+  if (input.statement) message += `\n\n${input.statement}`;
+  const fields = [];
+  if (input.uri) fields.push(`URI: ${input.uri}`);
+  if (input.version) fields.push(`Version: ${input.version}`);
+  if (input.chainId) fields.push(`Chain ID: ${input.chainId}`);
+  if (input.nonce) fields.push(`Nonce: ${input.nonce}`);
+  if (input.issuedAt) fields.push(`Issued At: ${input.issuedAt}`);
+  if (input.expirationTime) fields.push(`Expiration Time: ${input.expirationTime}`);
+  if (input.notBefore) fields.push(`Not Before: ${input.notBefore}`);
+  if (input.requestId) fields.push(`Request ID: ${input.requestId}`);
+  if (input.resources?.length) {
+    fields.push('Resources:');
+    for (const r of input.resources) fields.push(`- ${r}`);
+  }
+  if (fields.length) message += `\n\n${fields.join('\n')}`;
+  return message;
 }

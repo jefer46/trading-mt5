@@ -9,12 +9,17 @@ for (const f of ['popup.html', 'popup.css', 'manifest.json']) cpSync(`src/${f}`,
 cpSync('icons', 'dist/icons', { recursive: true });
 
 const options = {
-  entryPoints: ['src/popup.js'],
+  entryPoints: {
+    popup: 'src/popup.js',
+    background: 'src/background.js',
+    content: 'src/content.js',
+    inpage: 'src/inpage.js',
+  },
   bundle: true,
-  outfile: 'dist/popup.js',
+  outdir: 'dist',
   format: 'iife',
   platform: 'browser',
-  target: 'chrome110',
+  target: 'chrome111',
   minify: !watch,
   sourcemap: watch,
   define: { global: 'globalThis', 'process.env.NODE_ENV': '"production"' },

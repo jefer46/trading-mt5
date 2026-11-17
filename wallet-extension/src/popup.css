@@ -145,3 +145,53 @@ label { display: flex; flex-direction: column; gap: 6px; color: var(--muted); fo
 }
 .toast.ok { border-left: 3px solid var(--ok); }
 .toast.err { border-left: 3px solid var(--danger); }
+
+/* ---------- v0.2: token, NFT, swap, stake, dApp ---------- */
+h3 { font-size: 13px; margin: 4px 0 0; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.small { font-size: 12px; }
+.left { text-align: left; width: 100%; }
+.bad { color: var(--danger) !important; }
+.neg { color: var(--danger); }
+.pos { color: var(--ok); }
+.fiat { color: var(--muted); margin-top: -8px; min-height: 1em; }
+button.row { border: 0; font: inherit; text-align: left; width: 100%; }
+.row .right { text-align: right; }
+.row.col { flex-direction: column; align-items: stretch; gap: 6px; cursor: default; }
+.row-inline { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.avatar.sol { background: linear-gradient(135deg, #9945ff, #14f195); }
+img.avatar { object-fit: cover; background: var(--panel-2); }
+.avatar.lg { width: 64px; height: 64px; font-size: 26px; }
+.seg.tabs { align-items: center; }
+.seg .refresh { flex: 0 0 36px; font-size: 16px; }
+.seg.small button { padding: 4px 10px; font-size: 12px; }
+.actions .act { min-width: 0; text-decoration: none; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.nft { display: flex; flex-direction: column; gap: 6px; background: var(--panel); border: 0; border-radius: 10px; padding: 6px; color: var(--text); cursor: pointer; font: inherit; font-size: 12px; text-align: left; }
+.nft img, .nft .ph { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; background: var(--panel-2); display: grid; place-items: center; font-size: 28px; }
+.nft span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nft-img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; background: var(--panel); }
+.nft-img.ph { display: grid; place-items: center; font-size: 48px; }
+.attrs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+.attrs div { background: var(--panel); border-radius: 8px; padding: 6px 8px; overflow: hidden; }
+.attrs b { font-size: 12px; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.swapdir { align-self: center; margin: -6px 0; background: var(--panel); }
+.pill { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 99px; background: var(--panel-2); }
+.pill.ok { color: var(--ok); }
+.pill.pending { color: var(--warn); }
+.pill.off { color: var(--muted); }
+.list.scroll { max-height: 220px; overflow-y: auto; }
+.inline select.input { flex: 0 0 40%; }
+
+/* Jendela persetujuan dApp */
+body.window, body.window #app { min-height: 100vh; width: 100%; }
+body.window { width: auto; }
+.site { display: flex; align-items: center; gap: 10px; background: var(--panel); border-radius: var(--radius); padding: 10px 12px; }
+.site img { width: 32px; height: 32px; border-radius: 8px; }
+.site div { min-width: 0; }
+.site small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.perm { margin: 0; padding: 0 4px; list-style: none; display: flex; flex-direction: column; gap: 6px; color: var(--muted); }
+.msg { background: var(--panel); border-radius: 10px; padding: 12px; white-space: pre-wrap; word-break: break-word; max-height: 220px; overflow-y: auto; font-size: 13px; }
+.ixs { margin: 6px 0 4px; padding-left: 18px; color: var(--text); font-size: 13px; display: flex; flex-direction: column; gap: 4px; }
+.card.tx { padding: 8px 14px; }
+.warn.bad { background: #3a1a22; }
+.footer { display: flex; gap: 10px; padding: 12px 16px 16px; margin-top: auto; position: sticky; bottom: 0; background: var(--bg); border-top: 1px solid var(--panel-2); }
