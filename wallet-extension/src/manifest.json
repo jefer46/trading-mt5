@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Dompet Solana",
+  "version": "0.1.0",
+  "description": "Dompet Solana non-custodial (proyek belajar). Default: devnet.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Dompet Solana",
+    "default_icon": { "16": "icons/16.png", "48": "icons/48.png", "128": "icons/128.png" }
+  },
+  "icons": { "16": "icons/16.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "permissions": ["storage"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; img-src 'self' data:"
+  }
+}

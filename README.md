@@ -51,3 +51,8 @@ Opsi yang tersedia:
 Analisa yang dihasilkan bersifat teknikal berbasis indikator standar, **bukan**
 rekomendasi atau saran finansial. Selalu terapkan manajemen risiko sendiri
 sebelum mengambil keputusan trading.
+
+## Proyek lain di repo ini
+
+- [`wallet-extension/`](wallet-extension/): dompet crypto Solana berbentuk ekstensi
+  browser (mirip Phantom). Lihat README di folder tersebut.
